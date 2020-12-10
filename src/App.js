@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import List from "../src/List";
+import people from "./data";
 
 function App() {
+  const [detail, setDetail] = useState(people);
+  // console.log(List);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <section className="container">
+        <h3>{detail.length} birthday today</h3>
+        <List peoplesData={detail} />
+        <button onClick={() => setDetail([])}>clear all</button>
+      </section>
+    </main>
   );
 }
 
